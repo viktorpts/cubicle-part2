@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 
 const schema = new Schema({
-    author: { type: String, required: true },
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
     content: { type: String, required: true, maxLength: 250 }
 });
 

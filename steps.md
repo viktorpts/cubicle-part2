@@ -4,5 +4,5 @@
 [x] Create user service and auth middleware
 [x] Implement user pages
 [x] Implement route guards
-[ ] Update cube, accessory, comment models
-[ ] The rest ....
+[x] Update cube, comment models
+[ ] Delete page and action
