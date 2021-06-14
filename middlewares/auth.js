@@ -15,11 +15,10 @@ module.exports = () => (req, res, next) => {
         next();
     }
 
-    async function register({ username, password, repeatPassword }) {
-        if (username == '' || password == '' || repeatPassword == '') {
-            throw new Error('All fields are required!');
-        } else if (password != repeatPassword) {
-            throw new Error('Passwords don\'t match!');
+    async function register({ username, password }) {
+        const existing = await userService.getUserByUsername(username);
+        if (existing) {
+            throw new Error('Username is taken');
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
